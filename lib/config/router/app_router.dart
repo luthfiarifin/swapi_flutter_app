@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
 import '../../features/features.dart';
 
@@ -12,6 +13,10 @@ class AppRouter extends _$AppRouter {
           page: HomeRoute.page,
           initial: true,
           path: '/',
+        ),
+        AutoRoute(
+          page: DetailRoute.page,
+          path: '/film/:id',
         ),
       ];
 }

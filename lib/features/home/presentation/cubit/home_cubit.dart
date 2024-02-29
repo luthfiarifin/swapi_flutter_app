@@ -10,7 +10,7 @@ part 'home_state.dart';
 
 @injectable
 class HomeCubit extends Cubit<HomeState> {
-  final GetFilmUseCase _getFilmUseCase;
+  final GetFilmsUseCase _getFilmUseCase;
 
   HomeCubit(
     this._getFilmUseCase,

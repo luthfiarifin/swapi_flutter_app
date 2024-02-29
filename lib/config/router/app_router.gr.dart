@@ -15,13 +15,75 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    DetailRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final queryParams = routeData.queryParams;
+      final args = routeData.argsAs<DetailRouteArgs>(
+          orElse: () => DetailRouteArgs(
+                id: pathParams.getInt('id'),
+                title: queryParams.optString('title'),
+              ));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: DetailPage(
+          id: args.id,
+          title: args.title,
+          key: args.key,
+        )),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WrappedRoute(child: const HomePage()),
       );
-    }
+    },
   };
+}
+
+/// generated route for
+/// [DetailPage]
+class DetailRoute extends PageRouteInfo<DetailRouteArgs> {
+  DetailRoute({
+    required int id,
+    String? title,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          DetailRoute.name,
+          args: DetailRouteArgs(
+            id: id,
+            title: title,
+            key: key,
+          ),
+          rawPathParams: {'id': id},
+          rawQueryParams: {'title': title},
+          initialChildren: children,
+        );
+
+  static const String name = 'DetailRoute';
+
+  static const PageInfo<DetailRouteArgs> page = PageInfo<DetailRouteArgs>(name);
+}
+
+class DetailRouteArgs {
+  const DetailRouteArgs({
+    required this.id,
+    this.title,
+    this.key,
+  });
+
+  final int id;
+
+  final String? title;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'DetailRouteArgs{id: $id, title: $title, key: $key}';
+  }
 }
 
 /// generated route for

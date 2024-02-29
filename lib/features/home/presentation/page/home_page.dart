@@ -7,6 +7,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../../../config/di/injection.dart';
+import '../../../../config/router/router.dart';
 import '../../../../core/data/common/model/film_model.dart';
 import '../../../../core/presentation/extension/extension.dart';
 import '../../../../core/presentation/widget/widget.dart';
@@ -163,7 +164,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _navigateToDetail(FilmModel p1) {}
+  void _navigateToDetail(FilmModel film) {
+    context.router.push(DetailRoute(
+      id: film.url.getId() ?? 0,
+      title: film.title,
+    ));
+  }
 
   Widget _loadingIndicator() {
     return const LoadingWidget();

@@ -7,10 +7,10 @@ import '../../../../core/domain/usecase.dart';
 import '../repository/repository.dart';
 
 @lazySingleton
-class GetFilmUseCase implements UseCase<BaseModel<FilmModel>, int> {
+class GetFilmsUseCase implements UseCase<BaseModel<FilmModel>, int> {
   final HomeRepository repository;
 
-  const GetFilmUseCase(this.repository);
+  const GetFilmsUseCase(this.repository);
 
   @override
   Future<Either<Failure, BaseModel<FilmModel>>> call(int param) {

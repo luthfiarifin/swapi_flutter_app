@@ -34,10 +34,13 @@ class FilmItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              film.title,
-              style: context.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
+            Hero(
+              tag: film.url.getId() ?? film.title,
+              child: Text(
+                film.title,
+                style: context.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const Gap(4),
