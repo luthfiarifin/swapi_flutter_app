@@ -17,6 +17,7 @@ class FilmModel extends Equatable {
   final List<String> characters;
   final String created;
   final String edited;
+  final String url;
 
   const FilmModel({
     required this.title,
@@ -28,6 +29,7 @@ class FilmModel extends Equatable {
     required this.characters,
     required this.created,
     required this.edited,
+    required this.url,
   });
 
   factory FilmModel.fromJson(Map<String, dynamic> json) =>
@@ -46,5 +48,6 @@ class FilmModel extends Equatable {
         characters,
         created,
         edited,
+        url,
       ];
 }

@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'character_model.dart';
+part of 'people_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) =>
-    CharacterModel(
+PeopleModel _$PeopleModelFromJson(Map<String, dynamic> json) => PeopleModel(
       name: json['name'] as String,
       height: json['height'] as String,
       mass: json['mass'] as String,
@@ -22,7 +21,7 @@ CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) =>
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$CharacterModelToJson(CharacterModel instance) =>
+Map<String, dynamic> _$PeopleModelToJson(PeopleModel instance) =>
     <String, dynamic>{
       'name': instance.name,
       'height': instance.height,

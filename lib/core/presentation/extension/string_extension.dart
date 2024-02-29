@@ -19,4 +19,16 @@ extension DateExtensionString on String {
 
     return outputDate;
   }
+
+  int? getId() {
+    var uri = Uri.tryParse(this);
+
+    if (uri == null) {
+      return null;
+    }
+
+    var segments =
+        uri.pathSegments.where((segment) => segment.isNotEmpty).toList();
+    return int.tryParse(segments.last);
+  }
 }

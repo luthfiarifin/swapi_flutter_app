@@ -18,6 +18,7 @@ FilmModel _$FilmModelFromJson(Map<String, dynamic> json) => FilmModel(
           .toList(),
       created: json['created'] as String,
       edited: json['edited'] as String,
+      url: json['url'] as String,
     );
 
 Map<String, dynamic> _$FilmModelToJson(FilmModel instance) => <String, dynamic>{
@@ -30,4 +31,5 @@ Map<String, dynamic> _$FilmModelToJson(FilmModel instance) => <String, dynamic>{
       'characters': instance.characters,
       'created': instance.created,
       'edited': instance.edited,
+      'url': instance.url,
     };
