@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -46,57 +45,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
       body: BlocListener<HomeCubit, HomeState>(
         listener: (context, state) {
           _onStateChanged(state);
         },
         child: _body(),
-      ),
-    );
-  }
-
-  AppBar _appBar() {
-    return AppBar(
-      title: Text(
-        'SwapiApp',
-        style: context.titleMedium?.copyWith(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      centerTitle: true,
-      leadingWidth: 40,
-      automaticallyImplyLeading: false,
-      actions: [
-        _notificationIcon(),
-      ],
-      leading: _profileAvatar(),
-    );
-  }
-
-  Widget _notificationIcon() {
-    return Container(
-      height: 26,
-      width: 26,
-      margin: const EdgeInsets.only(right: 16),
-      child: SvgPicture.asset(
-        'assets/icon/notification.svg',
-        fit: BoxFit.fitWidth,
-      ),
-    );
-  }
-
-  Widget _profileAvatar() {
-    return Transform.translate(
-      offset: const Offset(16, 0),
-      child: CircleAvatar(
-        radius: 32,
-        backgroundColor: Colors.transparent,
-        child: SvgPicture.asset(
-          'assets/avatar/profile.svg',
-          height: 32,
-          width: 32,
-        ),
       ),
     );
   }

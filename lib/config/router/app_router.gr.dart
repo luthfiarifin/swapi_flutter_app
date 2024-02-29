@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BaseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BasePage(),
+      );
+    },
+    CinemaRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CinemaPage(),
+      );
+    },
     DetailRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final queryParams = routeData.queryParams;
@@ -40,6 +52,34 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BasePage]
+class BaseRoute extends PageRouteInfo<void> {
+  const BaseRoute({List<PageRouteInfo>? children})
+      : super(
+          BaseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BaseRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CinemaPage]
+class CinemaRoute extends PageRouteInfo<void> {
+  const CinemaRoute({List<PageRouteInfo>? children})
+      : super(
+          CinemaRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CinemaRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
