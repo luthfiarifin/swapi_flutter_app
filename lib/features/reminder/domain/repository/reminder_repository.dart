@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/data/error/error.dart';
 import '../../../../core/data/util/repository_util.dart';
 import '../../data/datasource/datasource.dart';
-import '../model/model.dart';
+import '../../../../core/domain/common/model/model.dart';
 
 abstract class ReminderRpository {
   Future<Either<Failure, ReminderModel?>> getReminder();

@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 
 import '../../../../config/di/injection.dart';
 import '../../../../core/core.dart';
-import '../../domain/model/model.dart';
 import '../cubit/reminder_cubit.dart';
 
 @RoutePage()
@@ -124,7 +123,9 @@ class _ReminderPageState extends State<ReminderPage> {
   }
 
   void _getInitialData() {
-    context.read<ReminderCubit>().getReminder();
+    context.read<ReminderCubit>()
+      ..initNotification()
+      ..getReminder();
   }
 
   void _showDatePicker() async {

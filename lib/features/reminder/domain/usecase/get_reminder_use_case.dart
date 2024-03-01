@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/data/error/failures.dart';
 import '../../../../core/domain/usecase.dart';
-import '../model/reminder_model.dart';
+import '../../../../core/domain/common/model/reminder_model.dart';
 import '../repository/repository.dart';
 
 @lazySingleton

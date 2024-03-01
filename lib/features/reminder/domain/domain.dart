@@ -1,1 +1,1 @@
-export 'model/model.dart';
+export '../../../core/domain/common/model/model.dart';

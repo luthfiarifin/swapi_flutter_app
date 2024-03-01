@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/data/error/exceptions.dart';
 import '../../../../core/data/local/shared_preference.dart';
-import '../../domain/model/model.dart';
+import '../../../../core/domain/common/model/model.dart';
 
 abstract class ReminderLocalDataSource {
   Future<ReminderModel?> getReminder();
