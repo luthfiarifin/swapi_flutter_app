@@ -24,7 +24,7 @@ abstract class _$AppRouter extends RootStackRouter {
     CinemaRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CinemaPage(),
+        child: WrappedRoute(child: const CinemaPage()),
       );
     },
     DetailRoute.name: (routeData) {
