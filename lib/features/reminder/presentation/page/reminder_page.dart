@@ -112,9 +112,14 @@ class _ReminderPageState extends State<ReminderPage> {
   }
 
   void _onSwitchChanged(bool value) {
+    final timeNow = DateTime.now();
+
     _saveChanges(
-      _reminderModel?.copyWith(enabled: value) ??
-          emptyReminder.copyWith(enabled: value),
+      _reminderModel?.copyWith(
+            enabled: value,
+            time: timeNow.add(const Duration(minutes: 1)),
+          ) ??
+          emptyReminder().copyWith(enabled: value),
     );
   }
 
@@ -150,8 +155,7 @@ class _ReminderPageState extends State<ReminderPage> {
 
     if (time != null) {
       final newDate = _reminderModel!.time.applied(time);
-      _saveChanges(_reminderModel?.copyWith(time: newDate) ??
-          emptyReminder.copyWith(time: newDate));
+      _saveChanges(_reminderModel!.copyWith(time: newDate));
     }
   }
 

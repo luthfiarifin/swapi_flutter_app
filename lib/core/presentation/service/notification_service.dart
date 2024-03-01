@@ -58,6 +58,7 @@ class NotificationService {
 
       if (plugin != null) {
         await plugin.requestNotificationsPermission();
+        await plugin.requestExactAlarmsPermission();
       }
     }
   }
@@ -72,7 +73,6 @@ class NotificationService {
         android: AndroidNotificationDetails('swapi-id', 'swapi-channel-id'),
         iOS: DarwinNotificationDetails(),
       ),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
     );

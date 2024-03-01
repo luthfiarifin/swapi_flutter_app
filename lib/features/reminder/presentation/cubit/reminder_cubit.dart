@@ -39,9 +39,10 @@ class ReminderCubit extends Cubit<ReminderState> {
   }
 
   void _scheduleNotif(ReminderModel reminder) {
-    _notificationService
-      ..cancelNotification(reminder.id, null)
-      ..scheduleNotification(reminder);
+    _notificationService.cancelNotification(reminder.id, null);
+    if (reminder.enabled) {
+      _notificationService.scheduleNotification(reminder);
+    }
   }
 
   void getReminder() async {

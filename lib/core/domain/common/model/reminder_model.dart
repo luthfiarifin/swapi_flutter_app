@@ -40,8 +40,11 @@ class ReminderModel extends Equatable {
   }
 }
 
-final ReminderModel emptyReminder = ReminderModel(
-  id: -1,
-  time: DateTime.now(),
-  enabled: false,
-);
+ReminderModel emptyReminder() {
+  final time = DateTime.now();
+  return ReminderModel(
+    id: -1,
+    time: time.add(const Duration(minutes: 1)),
+    enabled: false,
+  );
+}
