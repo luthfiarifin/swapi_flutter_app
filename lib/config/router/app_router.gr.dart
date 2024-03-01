@@ -51,6 +51,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WrappedRoute(child: const HomePage()),
       );
     },
+    ReminderRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(child: const ReminderPage()),
+      );
+    },
   };
 }
 
@@ -136,6 +142,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReminderPage]
+class ReminderRoute extends PageRouteInfo<void> {
+  const ReminderRoute({List<PageRouteInfo>? children})
+      : super(
+          ReminderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReminderRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

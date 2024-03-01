@@ -22,6 +22,10 @@ class AppRouter extends _$AppRouter {
               page: CinemaRoute.page,
               path: 'cinema',
             ),
+            AutoRoute(
+              page: ReminderRoute.page,
+              path: 'reminder',
+            ),
           ],
         ),
         AutoRoute(

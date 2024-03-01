@@ -20,6 +20,7 @@ class _BasePageState extends State<BasePage> {
       routes: const [
         HomeRoute(),
         CinemaRoute(),
+        ReminderRoute(),
       ],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
@@ -46,6 +47,10 @@ class _BasePageState extends State<BasePage> {
         BottomNavigationBarItem(
           icon: Icon(Icons.movie),
           label: 'Cinema',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.alarm),
+          label: 'Reminder',
         ),
       ],
     );
