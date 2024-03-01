@@ -6,18 +6,23 @@ import '../../domain/model/cinema_model.dart';
 
 const double _height = 120;
 
+typedef OnPageChanged = void Function(CinemaModel model);
+typedef OnDirectionPressed = void Function(CinemaModel model);
+
 class CinemaList extends StatelessWidget {
-  final void Function(CinemaModel model) onPageChanged;
+  final List<CinemaModel> data;
+  final OnPageChanged onPageChanged;
+  final OnDirectionPressed onDirectionPressed;
 
   const CinemaList({
     super.key,
     required this.onPageChanged,
+    required this.data,
+    required this.onDirectionPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    const cinemas = cinemaList;
-
     return SizedBox(
       height: _height,
       child: PageView.builder(
@@ -27,14 +32,15 @@ class CinemaList extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(left: 16),
             child: CinemaItem(
-              cinema: cinemas[index],
+              cinema: data[index],
+              onDirectionPressed: onDirectionPressed,
             ),
           );
         },
-        itemCount: cinemas.length,
+        itemCount: data.length,
         scrollDirection: Axis.horizontal,
         onPageChanged: (value) {
-          onPageChanged(cinemas[value]);
+          onPageChanged(data[value]);
         },
       ),
     );
@@ -43,10 +49,12 @@ class CinemaList extends StatelessWidget {
 
 class CinemaItem extends StatelessWidget {
   final CinemaModel cinema;
+  final OnDirectionPressed onDirectionPressed;
 
   const CinemaItem({
     super.key,
     required this.cinema,
+    required this.onDirectionPressed,
   });
 
   @override
@@ -66,21 +74,36 @@ class CinemaItem extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         children: [
-          Text(
-            cinema.name,
-            style: context.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  cinema.name,
+                  style: context.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Gap(8),
+                Text(
+                  cinema.address,
+                  style: context.labelMedium,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
             ),
           ),
           const Gap(8),
-          Text(
-            cinema.address,
-            style: context.labelMedium,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
+          IconButton(
+            iconSize: 24,
+            icon: Icon(
+              Icons.directions,
+              color: context.colorScheme.primary,
+            ),
+            onPressed: () => onDirectionPressed(cinema),
           ),
         ],
       ),
