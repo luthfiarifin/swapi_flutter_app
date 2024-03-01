@@ -233,7 +233,9 @@ class _CinemaPageState extends State<CinemaPage> {
       },
     );
 
-    return await Geolocator.getCurrentPosition();
+    return await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.low,
+    );
   }
 
   void _onResetSelectedCinema() {
